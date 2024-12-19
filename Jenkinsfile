@@ -98,7 +98,7 @@ pipeline {
 
     post {
         success {
-            echo 'Build and deployment succeeded!'
+            echo "Deployment to ${params.ENV} environment succeeded!"
         }
         failure {
             echo 'Build or deployment failed.'
