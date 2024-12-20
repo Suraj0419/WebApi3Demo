@@ -7,7 +7,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 
-COPY ["WebApi2.csproj", "./"]
+COPY ["WebApi3.csproj", "./"]
 
 RUN dotnet restore
 
