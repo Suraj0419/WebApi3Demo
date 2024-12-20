@@ -15,7 +15,7 @@ pipeline {
         DOCKER_CONTAINER_NAME_PROD = 'webapi2-prod'
         DOCKER_CONTAINER_NAME_UAT = 'webapi2-uat'
         DOCKER_PORT_DEV = '9090'
-        DOCKER_PORT_PROD = '9091'
+        DOCKER_PORT_PROD = '9095'
         DOCKER_PORT_UAT = '9092'
         DB_SERVER_DEV = 'localhost'
         DB_SERVER_PROD = 'prodserver'
