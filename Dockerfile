@@ -25,4 +25,4 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 
 
-ENTRYPOINT ["dotnet", "WebApi2.dll"]
+ENTRYPOINT ["dotnet", "WebApi3.dll"]
