@@ -40,7 +40,7 @@ pipeline {
 
         stage('Clone the GitHub repo') {
             steps {
-                git 'https://github.com/Suraj0419/WebApi2.git'
+                git 'https://github.com/Suraj0419/WebApi3Demo.git'
             }
         }
 
