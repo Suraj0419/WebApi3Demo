@@ -1,5 +1,6 @@
 // File: WebApi3/Data/AppDbContext.cs
 using Microsoft.EntityFrameworkCore;
+using WebApi3.Data;
 
 namespace WebApi3.Data
 {
