@@ -20,9 +20,9 @@ pipeline {
         DB_SERVER_DEV = 'localhost'
         DB_SERVER_PROD = 'prodserver'
         DB_SERVER_UAT = 'UATserver'
-        DB_NAME_DEV = 'devDB'
-        DB_NAME_PROD = 'prodDB'
-        DB_NAME_UAT = 'uatDB'
+        DB_NAME_DEV = 'WeatherDB'
+        DB_NAME_PROD = 'WeatherDB'
+        DB_NAME_UAT = 'WeatherDB'
         DB_USER_DEV = 'devUser'
         DB_USER_PROD = 'prodUser'
         DB_USER_UAT = 'uatUser'
@@ -44,26 +44,7 @@ pipeline {
             }
         }
 
-        stage('Update Config') {
-            steps {
-                echo 'Updating configuration...'
-                script {
-                    if (params.ENV == 'Development') {
-                        bat """
-                        powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\\update-config.ps1 -appSettingsPath 'appsettings.json' -dbServer '${DB_SERVER_DEV}' -dbName '${DB_NAME_DEV}' -dbUser '${DB_USER_DEV}' -dbPassword '${DB_PASSWORD_DEV}' }"
-                        """
-                    } else if (params.ENV == 'Production') {
-                        bat """
-                        powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\\update-config.ps1 -appSettingsPath 'appsettings.json' -dbServer '${DB_SERVER_PROD}' -dbName '${DB_NAME_PROD}' -dbUser '${DB_USER_PROD}' -dbPassword '${DB_PASSWORD_PROD}' }"
-                        """
-                    } else if (params.ENV == 'UAT') {
-                        bat """
-                        powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\\update-config.ps1 -appSettingsPath 'appsettings.json' -dbServer '${DB_SERVER_UAT}' -dbName '${DB_NAME_UAT}' -dbUser '${DB_USER_UAT}' -dbPassword '${DB_PASSWORD_UAT}' }"
-                        """
-                    }
-                }
-            }
-        }
+        
 
         stage('Build Docker Image') {
             steps {
