@@ -80,15 +80,15 @@ pipeline {
                 script {
                     if (params.ENV == 'Development') {
                         bat """
-                        docker run -d --rm --name ${DOCKER_CONTAINER_NAME_DEV} -p ${DOCKER_PORT_DEV}:8080 ${DOCKER_IMAGE}:${params.ENV}
+                        docker run -d --rm  --network=host --name ${DOCKER_CONTAINER_NAME_DEV} -p ${DOCKER_PORT_DEV}:8080 ${DOCKER_IMAGE}:${params.ENV}
                         """
                     } else if (params.ENV == 'Production') {
                         bat """
-                        docker run -d --rm --name ${DOCKER_CONTAINER_NAME_PROD} -p ${DOCKER_PORT_PROD}:8080 ${DOCKER_IMAGE}:${params.ENV}
+                        docker run -d --rm  --network=host --name ${DOCKER_CONTAINER_NAME_PROD} -p ${DOCKER_PORT_PROD}:8080 ${DOCKER_IMAGE}:${params.ENV}
                         """
                     } else if (params.ENV == 'UAT') {
                         bat """
-                        docker run -d --rm --name ${DOCKER_CONTAINER_NAME_UAT} -p ${DOCKER_PORT_UAT}:8080 ${DOCKER_IMAGE}:${params.ENV}
+                        docker run -d --rm  --network=host --name ${DOCKER_CONTAINER_NAME_UAT} -p ${DOCKER_PORT_UAT}:8080 ${DOCKER_IMAGE}:${params.ENV}
                         """
                     }
                 }
