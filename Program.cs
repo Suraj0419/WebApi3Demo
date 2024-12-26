@@ -3,8 +3,16 @@ using WebApi3.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+  //  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 30))
+    );
+});
 
 
 // Add services to the container.
